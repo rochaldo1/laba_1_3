@@ -1,0 +1,8 @@
+C:\Users\Дмитрий\source\repos\LAB_1_PER_3\LAB_1_PER_3\bin\Debug\LAB_1_PER_3.exe.config
+C:\Users\Дмитрий\source\repos\LAB_1_PER_3\LAB_1_PER_3\bin\Debug\LAB_1_PER_3.exe
+C:\Users\Дмитрий\source\repos\LAB_1_PER_3\LAB_1_PER_3\bin\Debug\LAB_1_PER_3.pdb
+C:\Users\Дмитрий\source\repos\LAB_1_PER_3\LAB_1_PER_3\obj\Debug\LAB_1_PER_3.csproj.AssemblyReference.cache
+C:\Users\Дмитрий\source\repos\LAB_1_PER_3\LAB_1_PER_3\obj\Debug\LAB_1_PER_3.csproj.SuggestedBindingRedirects.cache
+C:\Users\Дмитрий\source\repos\LAB_1_PER_3\LAB_1_PER_3\obj\Debug\LAB_1_PER_3.csproj.CoreCompileInputs.cache
+C:\Users\Дмитрий\source\repos\LAB_1_PER_3\LAB_1_PER_3\obj\Debug\LAB_1_PER_3.exe
+C:\Users\Дмитрий\source\repos\LAB_1_PER_3\LAB_1_PER_3\obj\Debug\LAB_1_PER_3.pdb
