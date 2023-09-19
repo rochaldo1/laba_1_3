@@ -12,7 +12,7 @@ namespace LAB_1_PER_3
         Red, Green, Blue
     };
 
-    internal class Flower
+    public class Flower
     {
         string name = "Flower";
         Color color = Color.Red;
@@ -26,8 +26,8 @@ namespace LAB_1_PER_3
         {
             Name = name;
             Color = color;
-            FadingInAir =  hoursInAir;
-            fadingInWater =  hoursInWater;
+            FadingInAir = hoursInAir;
+            fadingInWater = hoursInWater;
             BasePrice = basePrice;
         }
         public Flower() { }
@@ -38,16 +38,17 @@ namespace LAB_1_PER_3
 
         public string Name
         {
-            get => name; 
-            set {
+            get => name;
+            set
+            {
                 if ((string.IsNullOrWhiteSpace(value)) && (value.Length > 50))
                     throw new ArgumentException("Длина название должна быть от 1 до 50 символов. Повторите попытку");
 
-                  name = value;
-        
+                name = value;
+
             }
         }
-        public double State { get => state;   }
+        public double State { get => state; }
         public Color Color
         {
             get => color;
@@ -59,23 +60,28 @@ namespace LAB_1_PER_3
                 color = value;
             }
         }
-    public double FadingInWater { 
+        public double FadingInWater
+        {
             get => fadingInWater;
-            set {
+            set
+            {
                 if (value < 1)
                     throw new ArgumentException("Количество часов на воздухе должно быть больше нуля. Повторите попытку");
                 fadingInWater = 1.0 / value;
             }
         }
-        public double FadingInAir {
-            get => fadingInAir;  
-            set {
+        public double FadingInAir
+        {
+            get => fadingInAir;
+            set
+            {
                 if (value < 1)
                     throw new ArgumentException("Количество часов в воздухе должно быть больше нуля. Повторите попытку");
-                fadingInAir = 1.0 / value;    
+                fadingInAir = 1.0 / value;
             }
         }
-        public double BasePrice { 
+        public double BasePrice
+        {
             get => basePrice;
             set
             {
@@ -84,11 +90,27 @@ namespace LAB_1_PER_3
                 basePrice = value;
             }
         }
-        public bool InWater {
-            get => inWater; 
+        public bool InWater
+        {
+            get => inWater;
             set { inWater = value; }
         }
+        public double RealPrice() => BasePrice * state;
 
+        public bool Withered() => state == 0;
 
+        public void Placement(bool iWater)
+        {
+            inWater = iWater;
+        }
+
+        public void moveInnerClock(int hours)
+        {
+            if (hours < 0)
+                throw new ArgumentException("Некорректное значение сдвига внутренних часов цветка");
+            if (state <= 0) return;
+            state -= (inWater ? fadingInWater : fadingInAir) * hours;
+            if (state < 0) state = 0;
+        }
     }
 }
