@@ -12,7 +12,7 @@ namespace LAB_1_PER_3
         static void Main(string[] args)
         {
 
-            string forColor;
+           /* string forColor;
             int _color;
 
             string forInAir, forInWater;
@@ -124,7 +124,90 @@ namespace LAB_1_PER_3
 
             Console.WriteLine("Сдвиг внутренних часов на 4");
             flower.MoveInnerClock(4);
-            Print();
+            Print();*/
+
+
+
+
+
+
+
+
+
+
+
+            //Букет
+            Bouqet bouquet = new Bouqet();
+
+            int n = 2;
+            for (int i = 0; i < n; i++)
+            {
+                string _forName;
+                string _forColor;
+                int __color;
+
+                string _forInAir, _forInWater;
+                int __inAir, __inWater;
+
+                string _forBasePrice;
+                double __basePrice;
+                Flower _flower = new Flower();
+                while (true)
+                {
+                    Console.Write("Введите название цветка: ");
+                    _forName = Console.ReadLine();
+                    Console.Write("\nНажмите любую клавишу...");
+                    Console.ReadKey();
+                    Console.Clear();
+
+                    Console.Write("Введите цвет (0 - Красный, 1 - Зеленый, 2 - Синий): ");
+                    do _forColor = Console.ReadLine();
+                    while (!int.TryParse(_forColor, out __color));
+                    _flower.Color = (Color)(__color % 3);
+                    Console.Write("\nНажмите любую клавишу...");
+                    Console.ReadKey();
+                    Console.Clear();
+
+                    Console.Write("Введите количество часов, через которые цветок завянет на воздухе: ");
+                    do _forInAir = Console.ReadLine();
+                    while (!int.TryParse(_forInAir, out __inAir));
+                    Console.Write("\nНажмите любую клавишу...");
+                    Console.ReadKey();
+                    Console.Clear();
+
+                    Console.Write("Введите количество часов, через которые цветок завянет в воде: ");
+                    do _forInWater = Console.ReadLine();
+                    while (!int.TryParse(_forInWater, out __inWater));
+
+                    Console.Write("\nНажмите любую клавишу, чтобы продолжить...");
+                    Console.ReadKey();
+                    Console.Clear();
+
+                    Console.Write("Введите базовую цену: ");
+                    do _forBasePrice = Console.ReadLine();
+                    while (!double.TryParse(_forBasePrice, out __basePrice));
+
+                    Console.Write("\nНажмите любую клавишу, чтобы продолжить...");
+                    Console.ReadKey();
+                    Console.Clear();
+                    try
+                    {
+                        bouquet.AddFlower(_forName, (Color)(__color % 3), __inAir, __inWater, __basePrice);
+                        break;
+                    }
+                    catch (ArgumentException e)
+                    {
+                        Console.WriteLine(e.Message);
+                    }
+                }
+            }
+
+            bouquet.print();
+            Console.Write(bouquet.Size()+"\n");
+
+
+
+
         }
     }
 }
