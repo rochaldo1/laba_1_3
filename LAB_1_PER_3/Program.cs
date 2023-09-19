@@ -11,8 +11,10 @@ namespace LAB_1_PER_3
     {
         static void Main(string[] args)
         {
+
             Flower a=new Flower();
-            Console.WriteLine(a.Name);
+            a.Name = "33333333";
+            Console.WriteLine(a.Color);
         }
     }
 }
