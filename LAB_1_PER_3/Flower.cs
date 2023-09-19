@@ -19,24 +19,74 @@ namespace LAB_1_PER_3
         double state = 1, fadingInWater = 1, fadingInAir = 1, basePrice = 0;
         bool inWater = false;
 
+
+
+
+        public Flower(string name, Color color, int hoursInAir, int hoursInWater, double basePrice)
+        {
+            Name = name;
+            Color = color;
+            FadingInAir =  hoursInAir;
+            fadingInWater =  hoursInWater;
+            BasePrice = basePrice;
+        }
+        public Flower() { }
+
+
+
+
+
         public string Name
         {
-            get { return name; }
-            set { if ((!string.IsNullOrWhiteSpace(value)) && (value.Length<10)) name = value; }
+            get => name; 
+            set {
+                if ((string.IsNullOrWhiteSpace(value)) && (value.Length > 50))
+                    throw new ArgumentException("Длина название должна быть от 1 до 50 символов. Повторите попытку");
+
+                  name = value;
+        
+            }
         }
-        public double State { get { return state; }  }
-        public Color Color { get { return color; } }
-        public double FadingInWater { 
-            get { return fadingInWater; }
-            set { fadingInWater = 1.0 / value; }
+        public double State { get => state;   }
+        public Color Color
+        {
+            get => color;
+            set
+            {
+                if (!Enum.IsDefined(typeof(Color), value))
+                    throw new ArgumentOutOfRangeException(nameof(Color));
+
+                color = value;
+            }
+        }
+    public double FadingInWater { 
+            get => fadingInWater;
+            set {
+                if (value < 1)
+                    throw new ArgumentException("Количество часов на воздухе должно быть больше нуля. Повторите попытку");
+                fadingInWater = 1.0 / value;
+            }
         }
         public double FadingInAir {
-            get { return fadingInAir; } 
-            set { fadingInAir = 1.0 / value; }
+            get => fadingInAir;  
+            set {
+                if (value < 1)
+                    throw new ArgumentException("Количество часов в воздухе должно быть больше нуля. Повторите попытку");
+                fadingInAir = 1.0 / value;    
+            }
         }
         public double BasePrice { 
-            get { return basePrice; }
-            set { if (value > 0 || value < 15000000) basePrice = value; }
+            get => basePrice;
+            set
+            {
+                if (value <= 0 || value >= 15000000)
+                    throw new ArgumentException("Цена должна быть больше 0 и меньше 15000000. Повторите попытку");
+                basePrice = value;
+            }
+        }
+        public bool InWater {
+            get => inWater; 
+            set { inWater = value; }
         }
 
 
