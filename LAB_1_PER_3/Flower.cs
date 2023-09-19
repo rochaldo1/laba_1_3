@@ -31,21 +31,14 @@ namespace LAB_1_PER_3
             BasePrice = basePrice;
         }
         public Flower() { }
-
-
-
-
-
         public string Name
         {
             get => name;
             set
             {
-                if ((string.IsNullOrWhiteSpace(value)) && (value.Length > 50))
-                    throw new ArgumentException("Длина название должна быть от 1 до 50 символов. Повторите попытку");
-
-                name = value;
-
+                if ((!string.IsNullOrWhiteSpace(value)) && (value.Length < 50))
+                    name = value;
+                else throw new ArgumentException("Длина название должна быть от 1 до 50 символов. Установлено значение по умолчанию!");
             }
         }
         public double State { get => state; }
@@ -66,7 +59,7 @@ namespace LAB_1_PER_3
             set
             {
                 if (value < 1)
-                    throw new ArgumentException("Количество часов на воздухе должно быть больше нуля. Повторите попытку");
+                    throw new ArgumentException("Количество часов на воздухе должно быть больше нуля. Установлено значение по умолчанию!");
                 fadingInWater = 1.0 / value;
             }
         }
@@ -76,7 +69,7 @@ namespace LAB_1_PER_3
             set
             {
                 if (value < 1)
-                    throw new ArgumentException("Количество часов в воздухе должно быть больше нуля. Повторите попытку");
+                    throw new ArgumentException("Количество часов в воздухе должно быть больше нуля. Установлено значение по умолчанию!");
                 fadingInAir = 1.0 / value;
             }
         }
@@ -86,7 +79,7 @@ namespace LAB_1_PER_3
             set
             {
                 if (value <= 0 || value >= 15000000)
-                    throw new ArgumentException("Цена должна быть больше 0 и меньше 15000000. Повторите попытку");
+                    throw new ArgumentException("Цена должна быть больше 0 и меньше 15000000. Установлено значение по умолчанию!");
                 basePrice = value;
             }
         }
@@ -97,14 +90,7 @@ namespace LAB_1_PER_3
         }
         public double RealPrice() => BasePrice * state;
 
-        public bool Withered() => state == 0;
-
-        public void Placement(bool iWater)
-        {
-            inWater = iWater;
-        }
-
-        public void moveInnerClock(int hours)
+        public void MoveInnerClock(int hours)//сдвиг внутренних часов
         {
             if (hours < 0)
                 throw new ArgumentException("Некорректное значение сдвига внутренних часов цветка");
