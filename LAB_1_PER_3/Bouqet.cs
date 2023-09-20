@@ -11,7 +11,6 @@ namespace LAB_1_PER_3
         private List<Flower> flowers = new List<Flower>();
         public void AddFlower(string name, Color color, int hoursInAir, int hoursInWater, double basePrice)
         {
-
             flowers.Add(new Flower(name, color, hoursInAir, hoursInWater, basePrice));
         }
 

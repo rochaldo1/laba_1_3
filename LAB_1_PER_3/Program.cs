@@ -12,7 +12,7 @@ namespace LAB_1_PER_3
         static void Main(string[] args)
         {
 
-           /* string forColor;
+            /*string forColor;
             int _color;
 
             string forInAir, forInWater;
@@ -135,10 +135,9 @@ namespace LAB_1_PER_3
 
 
 
-
             //Букет
             Bouqet bouquet = new Bouqet();
-
+            Flower _flower = new Flower();
             int n = 2;
             for (int i = 0; i < n; i++)
             {
@@ -151,7 +150,7 @@ namespace LAB_1_PER_3
 
                 string _forBasePrice;
                 double __basePrice;
-                Flower _flower = new Flower();
+                
                 while (true)
                 {
                     Console.Write("Введите название цветка: ");
@@ -203,9 +202,9 @@ namespace LAB_1_PER_3
             }
 
             bouquet.print();
+
             Console.Write(bouquet.Size()+"\n");
-
-
+          
 
 
         }

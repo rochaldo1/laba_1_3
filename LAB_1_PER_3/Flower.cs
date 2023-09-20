@@ -27,7 +27,7 @@ namespace LAB_1_PER_3
             Name = name;
             Color = color;
             FadingInAir = hoursInAir;
-            fadingInWater = hoursInWater;
+            FadingInWater = hoursInWater;
             BasePrice = basePrice;
         }
         public Flower() { }
@@ -59,7 +59,7 @@ namespace LAB_1_PER_3
             set
             {
                 if (value < 1)
-                    throw new ArgumentException("Количество часов на воздухе должно быть больше нуля. Установлено значение по умолчанию!");
+                    throw new ArgumentException("Количество часов на воде должно быть больше нуля. Установлено значение по умолчанию!");
                 fadingInWater = 1.0 / value;
             }
         }
@@ -68,9 +68,11 @@ namespace LAB_1_PER_3
             get => fadingInAir;
             set
             {
+                
                 if (value < 1)
                     throw new ArgumentException("Количество часов в воздухе должно быть больше нуля. Установлено значение по умолчанию!");
                 fadingInAir = 1.0 / value;
+
             }
         }
         public double BasePrice
