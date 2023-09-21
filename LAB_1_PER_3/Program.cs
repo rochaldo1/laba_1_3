@@ -12,7 +12,7 @@ namespace LAB_1_PER_3
         static void Main(string[] args)
         {
 
-            /*string forColor;
+            string forColor;
             int _color;
 
             string forInAir, forInWater;
@@ -124,7 +124,7 @@ namespace LAB_1_PER_3
 
             Console.WriteLine("Сдвиг внутренних часов на 4");
             flower.MoveInnerClock(4);
-            Print();*/
+            Print();
 
 
 
@@ -136,6 +136,7 @@ namespace LAB_1_PER_3
 
 
             //Букет
+            /*
             Bouqet bouquet = new Bouqet();
             Flower _flower = new Flower();
             int n = 2;
@@ -203,7 +204,7 @@ namespace LAB_1_PER_3
 
             bouquet.print();
 
-            Console.Write(bouquet.Size()+"\n");
+            Console.Write(bouquet.Size()+"\n");*/
           
 
 
